@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-github-pages-url.com', // Placeholder for GitHub Pages URL
+  url: 'https://book.ridanaz.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -74,7 +74,7 @@ const config: Config = {
           label: 'Book',
         },
         {
-          href: 'https://github.com/your-org/humanoid-robotics-book', // Placeholder for GitHub repo URL
+          href: 'https://github.com/RidaNaz/Physical-AI-Humanoid-Robotics-TextBook',
           label: 'GitHub',
           position: 'right',
         },
@@ -114,7 +114,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-org/humanoid-robotics-book', // Placeholder for GitHub repo URL
+              href: 'https://github.com/RidaNaz/Physical-AI-Humanoid-Robotics-TextBook',
             },
           ],
         },
