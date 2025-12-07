@@ -44,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/your-org/humanoid-robotics-book/tree/main/', // Placeholder for GitHub repo URL
+            'https://github.com/RidaNaz/Physical-AI-Humanoid-Robotics-TextBook',
         },
         // Blog is not required for this book, so it is removed.
         theme: {
