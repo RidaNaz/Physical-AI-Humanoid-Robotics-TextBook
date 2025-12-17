@@ -24,6 +24,12 @@ class HealthResponse(BaseModel):
     timestamp: int
 
 
+@router.options("/health")
+async def health_options():
+    """Handle CORS preflight for health endpoint."""
+    return {"status": "ok"}
+
+
 @router.get("/health", response_model=HealthResponse)
 async def health_check():
     """

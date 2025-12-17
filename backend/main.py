@@ -20,15 +20,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Configure CORS
+# Configure CORS - Allow all origins for Vercel serverless
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # Docusaurus dev server
-        "https://ai-native-book-rho.vercel.app",  # FastAPI dev server
-        "https://book.ridanaz.com",  # Production URL
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],  # Allow all origins (needed for Vercel serverless)
+    allow_credentials=False,  # Must be False when allow_origins is "*"
     allow_methods=["*"],
     allow_headers=["*"],
 )
