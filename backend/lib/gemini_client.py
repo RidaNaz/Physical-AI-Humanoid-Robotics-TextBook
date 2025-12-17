@@ -17,7 +17,7 @@ class GeminiClient:
 
         genai.configure(api_key=api_key)
         self.embedding_model = "models/text-embedding-004"
-        self.llm_model = "gemini-1.5-pro-latest"
+        self.llm_model = "gemini-2.5-flash"
 
     def generate_embedding(self, text: str) -> List[float]:
         """

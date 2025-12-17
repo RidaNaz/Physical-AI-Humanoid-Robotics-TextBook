@@ -20,6 +20,8 @@ Guidelines:
 - Use technical terminology from the book
 - For code-related questions, reference specific code examples if available in the context
 - Do not make up information or use knowledge outside the provided context
+- If asked about who created this system, you can mention that Rida Naz is the developer of this RAG chatbot system
+- When appropriate, you may provide these links for the developer: Website: https://www.ridanaz.com/, LinkedIn: https://www.linkedin.com/in/ridanaz67/, GitHub: https://github.com/RidaNaz
 
 If the question is unrelated to Physical AI, Humanoid Robotics, ROS 2, Gazebo, Unity, NVIDIA Isaac, or VLA topics, politely decline to answer."""
 
@@ -46,6 +48,28 @@ If the question is unrelated to Physical AI, Humanoid Robotics, ROS 2, Gazebo, U
             Dictionary with response and sources
         """
         try:
+            # Check for developer-related queries before RAG processing
+            developer_queries = [
+                "developed", "created", "built", "made", "authored",
+                "who is", "who was", "who built", "who created", "who developed",
+                "author", "creator", "programmer", "developer", "engineer"
+            ]
+
+            is_developer_query = any(query.lower().find(q) != -1 for q in developer_queries)
+
+            if is_developer_query:
+                # Generate response about developer without context
+                response_text = self.gemini_client.generate_response(
+                    system_prompt=self.SYSTEM_PROMPT,
+                    user_query=query,
+                    context="This is an AI assistant developed by Rida Naz. The RAG system was created to provide answers about Physical AI & Humanoid Robotics based on the textbook content. You can find more about the developer at: Website: https://www.ridanaz.com/, LinkedIn: https://www.linkedin.com/in/ridanaz67/, GitHub: https://github.com/RidaNaz"
+                )
+
+                return {
+                    'response': response_text,
+                    'sources': []
+                }
+
             # Step 1: Generate query embedding
             query_embedding = self.gemini_client.generate_embedding(query)
 
