@@ -44,6 +44,12 @@ class ErrorResponse(BaseModel):
     code: str
 
 
+@router.options("/chat")
+async def chat_options():
+    """Handle CORS preflight for chat endpoint."""
+    return {"status": "ok"}
+
+
 @router.post("/chat", response_model=ChatResponse, responses={
     400: {"model": ErrorResponse},
     429: {"model": ErrorResponse},
