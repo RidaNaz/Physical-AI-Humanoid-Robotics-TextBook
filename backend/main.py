@@ -25,7 +25,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",  # Docusaurus dev server
-        "http://localhost:8000",  # FastAPI dev server
+        "https://ai-native-book-rho.vercel.app",  # FastAPI dev server
         "https://book.ridanaz.com",  # Production URL
     ],
     allow_credentials=True,

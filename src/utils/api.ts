@@ -6,7 +6,7 @@ import type { ChatResponse, ChatError } from '@site/src/components/ChatWidget/ty
 
 const API_BASE_URL = process.env.NODE_ENV === 'production'
   ? '' // Same origin in production
-  : 'http://localhost:8000';
+  : 'https://ai-native-book-rho.vercel.app/';
 
 export class ChatAPI {
   /**
