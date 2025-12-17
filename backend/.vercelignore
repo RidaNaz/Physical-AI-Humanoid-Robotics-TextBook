@@ -7,3 +7,8 @@
 __pycache__/
 .pytest_cache/
 .env
+uv.lock
+pyproject.toml
+.python-version
+.gitignore
+.vercel
