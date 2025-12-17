@@ -4,9 +4,7 @@
 
 import type { ChatResponse, ChatError } from '@site/src/components/ChatWidget/types';
 
-const API_BASE_URL = process.env.NODE_ENV === 'production'
-  ? '' // Same origin in production
-  : 'https://ai-native-book-rho.vercel.app/';
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export class ChatAPI {
   /**
@@ -14,7 +12,7 @@ export class ChatAPI {
    */
   static async sendQuery(query: string): Promise<ChatResponse> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/chat`, {
+      const response = await fetch(`${BACKEND_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +38,7 @@ export class ChatAPI {
    */
   static async checkHealth(): Promise<{ status: string; qdrant: boolean; gemini: boolean }> {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/health`);
+      const response = await fetch(`${BACKEND_URL}/api/health`);
       const data = await response.json();
       return data;
     } catch (error) {
